@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+{%block content%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration</title>
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/assets/css/tooplate-gymso-style.css">
+  <link rel="stylesheet" href="../static/assets/css/regform.css">
+  <style>
+    body{
+        background-image: url('../static/assets/images/2119.webp'); 
+    }
+</style>
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="login-form">
+          <h2>Academy Registration</h2>
+          
+
+
+          
+
+          <form class="membership-form webform" role="form" method="POST" enctype="multipart/form-data">
+             {% csrf_token %}
+          
+              NAME:<input type="text" class="form-control" name="username" placeholder="name">
+                    
+              PASSWORD:<input type="password" class="form-control" name="password" placeholder="********">
+
+              EMAIL<input type="email" class="form-control" name="email" placeholder="example@gmail.com" id="email"
+                pattern=".+@gmail.com" size="30" required>
+  
+
+              PLACE:<input type="text" class="form-control" name="place" placeholder="place">
+             
+              DISTRICT:<input type="text" class="form-control" name="district" placeholder="district">
+
+              STATE:<input type="text" class="form-control" name="state" placeholder="state">
+
+              LOCATION URL:<input type="text" class="form-control" name="location" placeholder="location">
+                
+
+              CATEGORY:<input type="text" class="form-control" name="category" placeholder="category">
+
+              CONTACT<input type="tel" class="form-control" name="contact" placeholder="contact"   pattern="[789][0-9]{9}" required>
+              
+              IMAGE:<input type="file" class="form-control" name="img" placeholder="logo">
+
+              PIN NUMBER:<input type="number" class="form-control" name="pin" placeholder="pin">
+               
+              LICENCE:<input type="text" class="form-control" name="licence_no" placeholder="license number" pattern="[A-Z0-9]{12}" required>  
+
+              <textarea class="form-control" rows="3" name="add_info" placeholder="Additional Message"></textarea>
+
+              {% comment %} <div class="row">
+                <div class = "col-md-3">
+                  <button type="submit" class="form-control" id="submit-button" name="payment">pay</button>
+              </div> {% endcomment %}
+                <div >
+                <button type="submit" class="form-control" id="submit-button" name="submit">Pay</button>
+                </div>
+                
+            </div>
+              
+          </form>
+        </div>
+
+        <div class="modal-footer"></div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+
+{%endblock%}

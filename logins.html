@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Play Fit Sports</title>
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/assets/css/tooplate-gymso-style.css">
+  <link rel="stylesheet" href="../static/assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../static/assets/css/regform.css">
+
+  <style>
+     body {
+      background-image: url('../static/assets/images/boxing.jpeg');
+      background-size:100% 150%;
+      color: #f2f1f1;
+    }
+    
+    .container {
+      margin-top: 150px;
+    }
+    
+    .login-form {
+      background-color: #333;   
+      padding: 40px;
+      border-radius: 5px;
+    }
+    .login-form a {
+      text-decoration: none;
+      font-size: 15px;
+      line-height: 12px;
+      color: #f2f1f1;
+
+    }
+    .login-form a:hover{
+      color: #ff5722;
+    }
+    
+    .login-form h2 {
+      margin-bottom: 30px;
+      text-align: center;
+      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    
+    .form-control {
+      background-color: #f8f1f1;
+      color: #060000;
+    }
+    
+    .btn-primary {
+      background-color: #ff5722;
+      border-color: #ff5722;
+    }
+    
+    .btn-primary:hover {
+      background-color: #1a7fde;
+      border-color: #f8f8fa;
+    }
+    
+    #myhome {
+      margin-left: auto;
+      display: flex;
+      justify-content: flex-start;
+
+    }
+    .home-link {
+    
+      font-size: 24px;
+      text-decoration: none;
+    }
+    {% comment %} a:{
+      color:red;
+
+    }
+     {% endcomment %}
+    
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="login-form">
+          
+            <h2>Login - Play Fit Sports &nbsp;&nbsp;&nbsp; <a href="/"> <i class="fa fa-fw fa-home" style="font-size : 30px;"></i>Home</a></h2>
+
+            {% if msg != None %}
+            <script>
+              var msg =  "{{ msg }}";
+                alert(msg);
+            </script>
+        {% endif %}
+          <form method="post" enctype="multipart/form-data"> 
+            {%csrf_token%}
+            {{ messages.error }}                
+            <div class="form-group">
+              <label for="username">Username</label>          
+              <input type="text" class="form-control" name="email" id="username" placeholder="Enter your username">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+            
+              <input type="password" class="form-control" name="password"id="password" placeholder="Enter your password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <a href="#">forgot password ? </a><br>
+            <a href="#" data-toggle="modal"  data-target="#membershipForm"> create a new account ?</a>
+         
+
+
+      
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      
+
+ 
+
+  <!--modal membership form-->
+ <div class="modal fade" id="membershipForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h2 class="modal-title" id="membershipFormLabel" style="color: #060000;">Membership Form</h2>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+           
+              <a href="/academy" style="color:white;"><button type="submit" class="form-control" id="submit-button" name="submit" >   As Academy </a> </button>
+
+              <a href="/coach" style="color:white;"><button type="submit" class="form-control" id="submit-button" name="submit">  As Coach  </a> </button>
+
+              <a href="/user" style="color:white;"> <button type="submit" class="form-control" id="submit-button" name="submit">  As User </a> </button>
+
+     
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

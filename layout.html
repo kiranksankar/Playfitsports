@@ -1,0 +1,508 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title>PlayFitSports HTML Template</title>
+
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+     <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+     <link rel="stylesheet" href="{% static 'assets/css/aos.css' %}">
+     <link rel="stylesheet" href="{% static 'assets/css/stule.css' %}">
+      {% comment %} <link rel="stylesheet" href="{% static 'assets/css/vgallery.css' %}"> {% endcomment %}
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+     
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="{% static 'assets/css/tooplate-gymso-style.css' %}">
+
+     <style> .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        /* margin-top: 20px; */
+    }
+    
+    .profile {
+        width: 300px;
+        margin: 10px;
+        background-color: #090909;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .profile img {
+        width: 100%;
+        height: auto;
+        max-height: 169px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    
+    .profile .details {
+        padding: 10px;
+    }
+    
+    .profile h2 {
+        margin-top: 0;
+        font-size: 20px;
+        color: #f5f5f5;
+    }
+    
+    .profile p {
+        margin: 0;
+        color: #fffbfb;
+    }
+
+
+
+    .footer {
+        font-size: 14px;
+        background-color: #1f1f24;
+        padding: 50px 0;
+    
+      }
+      
+      .footer .icon {
+        margin-right: 15px;
+        font-size: 24px;
+        line-height: 0;
+      }
+      
+      .footer h4 {
+        font-size: 16px;
+        font-weight: bold;
+        position: relative;
+        padding-bottom: 5px;
+        color: red;
+      }
+      .footer p{
+        color:white;
+      }
+      
+      .footer .footer-links {
+        margin-bottom: 30px;
+      }
+      
+      .footer .footer-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .footer .footer-links ul li {
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+      }
+      
+      .footer .footer-links ul li:first-child {
+        padding-top: 0;
+      }
+      
+      .footer .footer-links ul a {
+        color: rgba(255, 255, 255, 0.6);
+        transition: 0.3s;
+        display: inline-block;
+        line-height: 1;
+      }
+      
+      .footer .footer-links ul a:hover {
+        color: red;
+      }
+      
+      .footer .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.7);
+        margin-right: 10px;
+        transition: 0.3s;
+      }
+      
+      .footer .social-links a:hover {
+        color: #fff;
+        border-color: #fff;
+      }
+      
+      .footer .copyright {
+        color:red;
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .footer .credits {
+        padding-top: 4px;
+        text-align: center;
+        font-size: 13px;
+        color: red;
+      }
+      
+      .footer .credits a {
+        color: red;
+      }
+
+        </style>
+
+</head>
+
+
+<body  data-spy="scroll" data-target="#navbarNav" data-offset="50" >
+
+
+    
+<!--navigation bar-->
+
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        
+      <a href="/"><img src="{%static 'assets/images/logo.png'%}" style="width:90px;"></a>
+
+
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link smoothScroll"> <i class="fa fa-fw fa-home"></i>Home</a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a href="/about" class="nav-link smoothScroll">About Us</a>
+                    </li>
+    
+                
+    
+                    <li class="nav-item">
+                        <a href="/contact" class="nav-link smoothScroll">Contact</a>
+                    </li>
+        
+        
+        
+
+
+
+<!--USER-->
+{% if request.session.ut == "customer" %}
+
+
+<li class="nav-item">
+    <a href="/cgallery" class="nav-link smoothScroll">Coaches</a>
+</li>
+
+<li class="nav-item">
+    <a href="/agallery" class="nav-link smoothScroll">Academy</a>
+</li>
+
+<li class="nav-item">
+    <a href="/stadiummain" class="nav-link smoothScroll">Stadium</a>
+</li>
+<li class="nav-item">
+    <a href="/eventsmain" class="nav-link smoothScroll">Events</a>
+    <li class="nav-item">
+        <a href="/viewtutorial" class="nav-link smoothScroll">Videos</a>
+    </li>
+</li>
+
+
+     
+<!--admin-->
+
+    {% elif request.session.ut == "admin" %}
+
+
+
+
+    <li class="nav-item">
+        <a href="/cgallery" class="nav-link smoothScroll">COACHES</a>
+    </li>
+
+    <li class="nav-item">
+        <a href="/agallery" class="nav-link smoothScroll">ACADEMIES</a>
+    </li>
+
+    <li class="nav-item">
+        <a href="/viewfeedback" class="nav-link smoothScroll">FEEDBACKS</a>
+    </li>
+
+    <li class="nav-item">
+        <a href="/approval" class="nav-link smoothScroll">MANAGE USER</a>
+    </li>
+
+
+
+                    {% elif request.session.ut == "academy" %}
+
+
+
+
+                    <li class="dropdown"> 
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-toggle="tooltip" title="regiser now" style="color: #fdffff;">BOOKINGS
+                        <span class="caret"></span></a>
+                            <ul class="dropdown-menu" >
+                            <li class="nav-item">
+                                <a  href="/bookview" >Events</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/sbookview" > Stadiums</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/abookview" > Academy</a>
+                            </li>
+                            </ul>
+                            &nbsp;&nbsp;&nbsp;
+                            <li class="dropdown"> 
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-toggle="tooltip" title="regiser now" style="color: #fdffff;">REGISTER
+                                <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" >
+                                    <li class="nav-item">
+                                        <a  href="/eventregistration" >Events</a></li>
+                                    <li class="nav-item">
+                                        <a href="/stadiumregistration" > Stadiums</a>
+                                    </li>
+                                    </ul>
+
+                                    <li class="nav-item">
+                                        <a href="/academymain" class="nav-link smoothScroll"> <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;
+                                            &nbsp;PROFILE</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/addlocation" class="nav-link smoothScroll">add location</a>
+                                    </li>
+
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-toggle="tooltip" title="regiser now" style="color: #fdffff;">VIEW
+                                        <span class="caret"></span></a>
+                                            <ul class="dropdown-menu" >
+                                            <li class="nav-item">
+                                                <a  href="/eventview" >event</a></li>
+                                            <li class="nav-item">
+                                                <a href="/stadiumview" > stadium</a>
+                                            </li>
+                                            </ul>
+
+                                    {% elif request.session.ut == "coach" %}
+
+                                   
+
+                                    <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-toggle="tooltip" title="regiser now" style="color: #fdffff;">BOOKINGS
+                                        <span class="caret"></span></a>
+                                            <ul class="dropdown-menu" >
+                                            <li class="nav-item">
+                                                <a  href="/bookview" >Events</a></li>
+                                            <li class="nav-item">
+                                                <a href="/sbookview" > Stadiums</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="/cbookview" > coach</a>
+                                            </li>
+                                            </ul>
+                                            &nbsp;&nbsp;&nbsp;
+                                            <li class="dropdown">
+                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-toggle="tooltip" title="regiser now" style="color: #fdffff;">REGISTER
+                                                <span class="caret"></span></a>
+                                                    <ul class="dropdown-menu" >
+                                                    <li class="nav-item">
+                                                        <a  href="/eventregistration" >Events</a></li>
+                                                    <li class="nav-item">
+                                                        <a href="/stadiumregistration" > Stadiums</a>
+                                                    </li>
+                                                    </ul>
+                                                    <li class="nav-item">
+                                                        <a href="/coachmain" class="nav-link smoothScroll"> <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;
+                                                            &nbsp;PROFILE</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a href="/addlocation" class="nav-link smoothScroll">add location</a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-toggle="tooltip" title="regiser now" style="color: #fdffff;">VIEW
+                                                        <span class="caret"></span></a>
+                                                            <ul class="dropdown-menu" >
+                                                            <li class="nav-item">
+                                                                <a  href="/videolist" >videos</a></li>
+                                                            <li class="nav-item">
+                                                                <a href="/eventview" > event</a>
+                                                            </li>
+                                                            <li class="nav-item">
+                                                                <a href="/stadiumview" > stadiums</a>
+                                                            </li>
+                                                            </ul>
+
+                                
+            
+            {% endif%}
+            {% if request.user.id == None %}
+           
+
+            <li class="nav-item">
+                <a href="/cgallery" class="nav-link smoothScroll">Coaches</a>
+            </li>
+
+            <li class="nav-item">
+                <a href="/agallery" class="nav-link smoothScroll">Academies</a>
+            </li>
+               
+                <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-toggle="tooltip" title="regiser now" style="color: #fdffff;">REGISTER
+                    <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                        <li class="nav-item" > 
+                            <a  href="/academy" >Academy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/coach" > Coach</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/user"> User</a>
+                        </li>
+                        </ul>
+
+                <li class="nav-item">
+                    <a href="/logins" class="nav-link smoothScroll"><i class="fa fa-fw fa-user"></i>LOG IN<a>
+                </li>
+
+                {% else %}
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link smoothScroll"><i class="fa fa-fw fa-user"></i>LOG OUT<a>
+                </li>
+                {% endif%}
+                
+            </ul>
+
+            <ul class="social-icon ml-lg-3">
+                <li><a href="https://fb.com/tooplate" class="fa fa-facebook"></a></li>
+                <li><a href="#" class="fa fa-twitter"></a></li>
+                <li><a href="#" class="fa fa-instagram"></a></li>
+            </ul>
+        </div>
+    </div>
+    
+</nav>
+{% comment %} <div>
+<h3 style="color:white;margin-left:30px;">{{request.user.username}}     </h3> </div> {% endcomment %}
+{%block content%}
+{% endblock %}
+<!--footer-->
+
+
+<footer  class="footer site-footer">
+
+    <div class="container-fluid">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex" data-aos="fade-up">
+          <i class="fa fa-address-book fa-2x"></i>&nbsp;&nbsp;
+          <div>
+            <h4>Address</h4>
+            <p>
+              Kottamkunnath house, Pudurythy <br>
+              TSR, KERALA - 680623 - INDIA<br>
+            </p>
+          </div>
+
+        </div> 
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex"data-aos="fade-up">
+          <i class="fa fa-phone fa-2x"></i>&nbsp;&nbsp;
+          <div>
+            <h4>Contact Us</h4>
+            <p>
+              <strong>Phone:</strong> 8289808134<br>
+              <strong>Email:</strong> admin1@gmail.com<br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex" data-aos="fade-up">
+          <i class="fa fa-clock-o fa-2x"></i>&nbsp;&nbsp;
+          <div>
+            <h4>Opening Hours</h4>
+            <p>
+              <strong>Mon-Sat: 11AM</strong> - 23PM<br>
+              Sunday: Closed
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="https://accounts.snapchat.com/accounts/v2/login" class="twitter"><i class="fa fa-snapchat-ghost"></i></a>
+            <a href="https://www.facebook.com/login/" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/accounts/login/" class="instagram"><i class="fa fa-instagram"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container-fluid" data-aos="fade-up">
+      <div class="copyright">
+        &copy; Copyright <strong><span>PLAYFIT SPORTS</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/ -->
+        Designed by Kiran k s
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+
+
+{% comment %} <footer class="site-footer">
+    <div class="container-fluid">
+         <div class="row">
+
+              <div class="ml-auto col-lg-4 col-md-5">
+                  <p class="copyright-text">Copyright &copy; Play Fit Sports co.pvt.Ltd
+                  <!---ESPN ADD CHEYYANAM-->
+                      <br>Design: <a href="https://www.espn.com">ESPN</a></p>
+              </div>
+
+              <div class="d-flex justify-content-center mx-auto col-lg-5 col-md-7 col-12">
+                  <p class="mr-4">
+                      <i class="fa fa-envelope-o mr-1"></i>
+                      <a href="#">kiranksankar1@gmail.com</a>
+                  </p>
+
+                  <p><i class="fa fa-phone mr-1"></i> 9072375973</p>
+              </div>
+              
+         </div>
+    </div>
+</footer> {% endcomment %}
+
+
+ <!-- SCRIPTS -->
+ <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+ <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+ <script src="{% static 'assets/js/aos.js' %}"></script>
+ <script src="{% static 'assets/js/smoothscroll.js' %}"></script>
+ <script src="{% static 'assets/js/custom.js' %}"></script>
+ <script src="{% static 'assets/js/pay.js' %}"></script>
+
+
+</body>
+</html>
